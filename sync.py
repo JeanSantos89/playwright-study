@@ -1,9 +1,19 @@
-from playwright.sync_api import sync_playwright # importação base do modo sync
+from playwright.sync_api import sync_playwright
 
-with sync_playwright() as p: #inicialização do programa utilizando playwright sync
-    browser = p.chromium.launch(headless=False) # abrir o launcher e desativar o modo headless para mostrar a tela (pode executar sem)
-    page = browser.new_page() # criar uma nova pagina 
-    page.goto("https://www.youtube.com/watch?v=FK_5SQPq6nY&list=PLYDwWPRvXB8_W56h2C1z5zrlnAlvqpJ6A") # enviar o url
-    page.wait_for_timeout(3000) # pega em milissegundos (3s)
-    page.screenshot(path="demo.png") # printa
-    browser.close() # fecha
+with sync_playwright() as p: 
+    browser = p.chromium.launch(headless=False) 
+    page = browser.new_page() 
+    page.goto("") # enviar o url
+
+# CSS SELECTOR - id #, class ., attribute tagname[attribute = "value"]
+    # id: 
+    caixaDeTexto = page.wait_for_selector('#email') # espera o id email aparecer na pagina
+    caixaDeTexto.type('emailteste@gmail.com') # digita no txt box
+    
+    botaologin = page.wait_for_selector("#botao") # espera o id do botao aparecer na pagina
+    botaologin.click() # clicar no botao
+    
+    page.wait_for_timeout(3000) 
+    browser.close() 
+
+
