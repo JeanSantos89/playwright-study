@@ -1,24 +1,27 @@
-Playwright 
+                        Playwright - Guia Rápido
+Este repositório contém exemplos e instruções para automações com Playwright, utilizando modo headless (executa sem exibir o navegador) e suporte para seletores CSS/XPath.
 
-- Executa em modo headless de forma automática. Então, ao executar a automação, ele não irá mostrar nada, mas estará executando.
+                        Tipos de Execução
+sync: ideal para automações simples.
+async: recomendado para automações mais avançadas ou com paralelismo.
 
-    * Não mostra # browser = p.chromium.launch()
-    * Mostra # browser = p.chromium.launch(headless=False)
-    * sync: automações simples
-    * async: automações avançadas
+CSS Seletores
+#id
+.class
+tagname[attribute="value"]
 
-* CSS SELECTOR - id #, class . - tagname[attribute = "value"] -
-* xpath - Relative xpath -  //tagname[@attributename="value"] -
-* text - '//tagname[text()=""'] - clicar pelo texto
-* contains - //tagname[contains()@attribute,"value"] -
-    text - //tagname[contains(text(),"metade do texto")] - Procura qualquer coisa que contenha o texto escrito
-    starts-with - //tagname[starts-with(@id, 'prasanth')]
-    ends-with - //tagname[ends-with(@id, ' 1345')]
-**
+XPATH
+//tagname[@attribute="value"]                   --> Relative XPath
+//tagname[text()="Texto exato"]                --> Seleciona por texto
+//tagname[contains(@attribute, "valor")]       --> Contém valor parcial
+//tagname[contains(text(), "parte do texto")]  --> Contém parte do texto
+//tagname[starts-with(@id, "inicio")]          --> Começa com
+//tagname[ends-with(@id, "fim")]               --> Termina com
 
-- Dropdown (clica e aparece uma lista)
-    page.query_selector('//select[@id="Skills"]')
-    variavel.select_option(label='Adobe Photoshop')
-                        ou
-    page..select_option('//select[@id="Skills"]', label='Adobe Photoshop')
-                    
+DROPDOWN
+Selecionando o elemento
+dropdown = page.query_selector('//select[@id="Skills"]')
+Selecionando a opção por label
+dropdown.select_option(label='Adobe Photoshop')
+Alternativa direta
+page.select_option('//select[@id="Skills"]', label='Adobe Photoshop')
