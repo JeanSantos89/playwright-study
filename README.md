@@ -25,3 +25,10 @@ Selecionando a opção por label
 dropdown.select_option(label='Adobe Photoshop')
 Alternativa direta
 page.select_option('//select[@id="Skills"]', label='Adobe Photoshop')
+
+RADIO BUTTON
+//tagname[@attribute="value"]    
+
+CHECK BOX 
+//tagname[@attribute="value"]
+
