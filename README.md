@@ -1,4 +1,4 @@
-# Playwright - Guia Rápido
+# Playwright 
 
 Este repositório contém exemplos e instruções para automações com **Playwright**, utilizando modo *headless* (executa sem exibir o navegador) e suporte para seletores **CSS/XPath**.
 
